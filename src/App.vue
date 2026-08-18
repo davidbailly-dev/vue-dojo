@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const counter = ref(0)
 const myInput = ref('')
@@ -17,6 +17,10 @@ const defaultTasks = [
   }
 ]
 const tasks = ref(defaultTasks)
+const search = ref('')
+const filteredTasks = computed(() => {
+  return tasks.value.filter(task => task.text.includes(search.value))
+})
 
 function getBackground() {
   if (myInput.value.length > 1) {
@@ -41,8 +45,9 @@ function toggleTasksData() {
   <button type="button" @click="counter++">{{ counter }}</button>
   <input :style="getBackground()" @input="myInput = $event.target.value" />
   <button @click="toggleTasksData">Afficher/Masquer tâches</button>
-  <table v-if="tasks.length > 0">
-    <tr v-for="task in tasks" :key="task.id">
+  <input @input="search = $event.target.value" placeholder="Rechercher une tâche..." />
+  <table v-if="filteredTasks.length > 0">
+    <tr v-for="task in filteredTasks" :key="task.id">
       <td>{{ task.text }}</td>
     </tr>
   </table>
