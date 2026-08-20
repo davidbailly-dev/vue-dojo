@@ -12,13 +12,13 @@
 
 Objectif : un projet Vue 3 qui tourne, structure comprise, dépôt Git en Gitflow dès le départ.
 
-- [ ] Installer Node.js (LTS) et vérifier `node -v` / `npm -v`.
-- [ ] Créer le projet avec `npm create vite@latest vue-dojo -- --template vue`.
-- [ ] Installer les dépendances (`npm install`) et lancer `npm run dev`.
-- [ ] Initialiser le dépôt Git, créer le repo GitHub `vue-dojo`, relier, premier commit "Initial commit" sur `main`.
-- [ ] Créer `develop` à partir de `main`, la pousser, la définir comme branche par défaut pour les PR.
-- [ ] Explorer la structure générée : `main.js`, `App.vue`, `components/`, comprendre le rôle de chaque fichier.
-- [ ] Nettoyer le contenu par défaut de `App.vue` pour repartir sur une base vide (sur une branche `feature/setup-projet`, mergée dans `develop` en `--no-ff`).
+- [x] Installer Node.js (LTS) et vérifier `node -v` / `npm -v`.
+- [x] Créer le projet avec `npm create vite@latest vue-dojo -- --template vue`.
+- [x] Installer les dépendances (`npm install`) et lancer `npm run dev`.
+- [x] Initialiser le dépôt Git, créer le repo GitHub `vue-dojo`, relier, premier commit "Initial commit" sur `main`.
+- [x] Créer `develop` à partir de `main`, la pousser, la définir comme branche par défaut pour les PR.
+- [x] Explorer la structure générée : `main.js`, `App.vue`, `components/`, comprendre le rôle de chaque fichier.
+- [x] Nettoyer le contenu par défaut de `App.vue` pour repartir sur une base vide (sur une branche `feature/setup-projet`, mergée dans `develop` en `--no-ff`).
 
 **Défi du jour** : me montrer `App.vue` nettoyé et une capture (ou description) du rendu dans le navigateur, plus `git log --graph --all --decorate` montrant `main` et `develop`.
 
@@ -141,4 +141,7 @@ Un scénario complet, enchaîné sans étapes détaillées cette fois — à toi
 
 *(mis à jour au fil des sessions Claude Code)*
 
-- *(vide pour l'instant — la première entrée apparaîtra après le défi du Jour 1)*
+- **2026-08-17** — Phase 0 terminée : projet Vite/Vue créé, dépôt Git initialisé avec Gitflow (`main`/`develop`), repo GitHub `davidbailly-dev/vue-dojo` relié et `develop` en branche par défaut, `App.vue` nettoyé sur `feature/setup-projet` (PR mergée et branche supprimée). *Remarque : point sur le rôle de `-A` dans `git add` (prise en compte des suppressions) et sur `:root`/variables CSS (CSS natif, pas spécifique à Vue).*
+- **2026-08-18** — Jour 2 terminé : compteur interactif (`@click`, `ref()`) et champ input dont le fond change selon la longueur du texte (`@input`, `:style` avec objet/chaîne CSS), sur `feature/compteur-interactif` (PR mergée et branche supprimée). *Remarque : décision d'adopter les Conventional Commits (`feat:`, `docs:`, ...) pour la suite du projet ; points corrigés en cours de route : `.value` obligatoire en JS hors template, `:style` attend une expression JS (objet ou chaîne), pas du CSS brut.*
+- **2026-08-18** — Jour 3 terminé : liste de tâches affichée via `v-for`/`:key` (sur `<tr>`), bouton togglant la liste avec message "aucune tâche" via `v-if`/`v-else`, sur `feature/liste-taches` (PR mergée et branche supprimée). *Remarque : plusieurs allers-retours sur la réactivité — un `ref` ne se remplace pas par un nouveau `ref()`, on modifie sa `.value` ; un tableau vide `[]` reste "truthy" en JS ; garder une copie séparée des données de départ pour pouvoir restaurer une liste vidée ; `v-if`/`v-else` évite de dupliquer/inverser une condition.*
+- **2026-08-18** — Jour 4 terminé : champ de recherche filtrant la liste de tâches via une `computed()`, sur `feature/filtrer-resultats-taches` (PR mergée et branche supprimée). *Remarque : `computed()` déclare une valeur dérivée que Vue garde synchronisée automatiquement (avec cache), contrairement à `watch()` qui sert à des effets de bord et demanderait de gérer soi-même un `ref` séparé.*
