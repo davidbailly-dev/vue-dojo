@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import TaskItem from './components/TaskItem.vue'
 import CardWrapper from './components/CardWrapper.vue'
+import { useTaskFilter } from './composables/useTaskFilter.js'
 
 const counter = ref(0)
 const colorInput = ref('')
@@ -24,9 +25,7 @@ const defaultTasks = [
 ]
 const tasks = ref(defaultTasks)
 const search = ref('')
-const filteredTasks = computed(() => {
-  return tasks.value.filter(task => task.text.includes(search.value))
-})
+const { filteredTasks } = useTaskFilter(tasks, search)
 
 function getBackground() {
   if (colorInput.value.length > 1) {
