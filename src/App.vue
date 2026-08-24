@@ -1,8 +1,12 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { ref, provide } from 'vue'
 import TaskItem from './components/TaskItem.vue'
 import CardWrapper from './components/CardWrapper.vue'
 import { useTaskFilter } from './composables/useTaskFilter.js'
+
+const themeName = ref('light')
+
+provide('theme', themeName)
 
 const counter = ref(0)
 const colorInput = ref('')
@@ -32,6 +36,14 @@ function getBackground() {
     return 'background-color: green'
   } else {
     return 'background-color: red'
+  }
+}
+
+function toggleTheme() {
+  if (themeName.value === 'light') {
+    themeName.value = 'dark'
+  } else {
+    themeName.value = 'light'
   }
 }
 
@@ -79,4 +91,5 @@ function basculerTache(id) {
     </tr>
   </table>
   <p v-else>Aucune tâche à afficher.</p>
+  <button @click="toggleTheme()">Basculer thème clair/sombre</button>
 </template>
