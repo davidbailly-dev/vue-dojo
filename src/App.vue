@@ -68,28 +68,30 @@ function toggleTheme() {
 </script>
 
 <template>
-  <h1>Vue Dojo</h1>
-  <CardWrapper>
-    <template #header>
-      <h3>Compteur</h3>
-    </template>
-    <button type="button" @click="counter++">{{ counter }}</button>
-  </CardWrapper>
-  <input :style="getBackground()" @input="colorInput = $event.target.value" />
-  <button @click="toggleTasksData">Afficher/Masquer tâches</button>
-  <input @input="search = $event.target.value" placeholder="Rechercher une tâche..." />
-  <table v-if="filteredTasks.length > 0">
-    <tr v-for="task in filteredTasks" :key="task.id">
-      <td>
-        <CardWrapper>
-          <template #header>
-            <h3>Tâche</h3>
-          </template>
-          <TaskItem :task="task" @toggle="toggleTask(task.id)" />
-        </CardWrapper>
-      </td>
-    </tr>
-  </table>
-  <p v-else>Aucune tâche à afficher.</p>
-  <button @click="toggleTheme()">Basculer thème clair/sombre</button>
+  <div class="app" :class="themeName">
+    <h1>Vue Dojo</h1>
+    <CardWrapper>
+      <template #header>
+        <h3>Compteur</h3>
+      </template>
+      <button type="button" @click="counter++">{{ counter }}</button>
+    </CardWrapper>
+    <input :style="getBackground()" @input="colorInput = $event.target.value" />
+    <button @click="toggleTasksData">Afficher/Masquer tâches</button>
+    <input @input="search = $event.target.value" placeholder="Rechercher une tâche..." />
+    <table v-if="filteredTasks.length > 0">
+      <tr v-for="task in filteredTasks" :key="task.id">
+        <td>
+          <CardWrapper>
+            <template #header>
+              <h3>Tâche</h3>
+            </template>
+            <TaskItem :task="task" @toggle="toggleTask(task.id)" />
+          </CardWrapper>
+        </td>
+      </tr>
+    </table>
+    <p v-else>Aucune tâche à afficher.</p>
+    <button @click="toggleTheme()">Basculer thème clair/sombre</button>
+  </div>
 </template>
