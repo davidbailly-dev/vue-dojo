@@ -39,11 +39,13 @@ function getBackground() {
   }
 }
 
-function toggleTheme() {
-  if (themeName.value === 'light') {
-    themeName.value = 'dark'
+function toggleTask(id) {
+  const taskFound = tasks.value.find(task => task.id === id)
+
+  if (taskFound.done) {
+    taskFound.done = false
   } else {
-    themeName.value = 'light'
+    taskFound.done = true
   }
 }
 
@@ -55,13 +57,11 @@ function toggleTasksData() {
   }
 }
 
-function basculerTache(id) {
-  const taskFound = tasks.value.find(task => task.id === id)
-
-  if (taskFound.done) {
-    taskFound.done = false
+function toggleTheme() {
+  if (themeName.value === 'light') {
+    themeName.value = 'dark'
   } else {
-    taskFound.done = true
+    themeName.value = 'light'
   }
 }
 
@@ -85,7 +85,7 @@ function basculerTache(id) {
           <template #header>
             <h3>Tâche</h3>
           </template>
-          <TaskItem :task="task" @toggle="basculerTache(task.id)" />
+          <TaskItem :task="task" @toggle="toggleTask(task.id)" />
         </CardWrapper>
       </td>
     </tr>
