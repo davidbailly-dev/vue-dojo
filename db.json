@@ -1,0 +1,9 @@
+{
+    "tasks": [
+            { "id": 1, "text": "Installer les dépendances", "done": false },
+            { "id": 2, "text": "Coder le backend", "done": false },
+            { "id": 3, "text": "Coder le frontend", "done": false },
+            { "id": 4, "text": "Valider les tests", "done": false },
+            { "id": 5, "text": "Déployer en production", "done": false }
+    ]
+}

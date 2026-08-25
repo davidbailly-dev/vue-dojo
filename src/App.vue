@@ -2,7 +2,7 @@
 import { ref, provide } from 'vue'
 import CardWrapper from './components/CardWrapper.vue'
 
-const themeName = ref('light')
+const themeName = ref('dark')
 
 provide('theme', themeName)
 
