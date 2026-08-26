@@ -1,5 +1,4 @@
 <script setup>
-import { inject } from 'vue'
 
 const props = defineProps({
     task: {
@@ -9,8 +8,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['toggle'])
-
-const currentTheme = inject('theme')
 
 function taskIsDone(done) {
     if (done) {
@@ -23,5 +20,4 @@ function taskIsDone(done) {
     <span :style="taskIsDone(task.done)">{{ task.text }}</span>
     <button @click="emit('toggle', task.id)">Basculer</button>
     <RouterLink :to="'/task/' + task.id">Voir détails</RouterLink>
-    <p>Active theme : {{ currentTheme }}</p>
 </template>

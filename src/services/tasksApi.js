@@ -5,5 +5,15 @@ export async function getTasks() {
         throw new Error('Erreur serveur : impossible de récupérer les tâches')
     }
 
-    return await response.json()
+    let jsonResponse = await response.json() 
+    let sanitizedResponse = jsonResponse.map(task => {
+        const sanitizedTask = {
+            ...task,
+            id: parseInt(task.id)
+        }
+        
+        return sanitizedTask
+    })
+
+    return sanitizedResponse
 }
