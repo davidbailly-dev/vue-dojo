@@ -1,5 +1,26 @@
-# Vue 3 + Vite
+# Vue Dojo
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Description
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Programme à piloter dans `claude code` pour apprendre Vue.js 3, en partant de zéro sur le framework — bases de la réactivité et du template, puis construction progressive d'une arborescence de composants jusqu'à une mini-app complète (routing, Pinia, appels API).
+
+## Utilisation
+
+1. Ce dossier contient déjà `CLAUDE.md` et `PROGRAMME.md`.
+2. Dans un terminal, se placer dans ce dossier et lancer :
+    ```
+    claude
+    ```
+3. Dans `claude code`, écrire le premier prompt :
+    ```
+    On commence le jour X.
+    ```
+    (voir `PROGRAMME.md` pour savoir où reprendre)
+
+## Mini-projet fil rouge
+
+Un gestionnaire de tâches (voir `PROGRAMME.md` pour le détail des phases et des défis quotidiens).
+
+## Notes
+
+Le contenu du code produit pendant le programme est fictif, seuls les fichiers `CLAUDE.md` et `PROGRAMME.md` définissent le déroulé du dojo.
