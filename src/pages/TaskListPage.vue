@@ -16,7 +16,6 @@ const { filteredTasks } = useTaskFilter(storeToRefs(taskStore).tasks, search)
 </script>
 
 <template>
-    <button @click="taskStore.toggleTasksData">Afficher/Masquer tâches</button>
     <input @input="search = $event.target.value" placeholder="Rechercher une tâche..." />
     <div>
         <p v-if="taskStore.loading">Chargement des tâches...</p>

@@ -8,8 +8,13 @@ const routes = [
     {
         path: '/task/:id',
         component: TaskDetailPage,
-        beforeEnter(to, from, next) {
+        async beforeEnter(to, from, next) {
             const taskStore = useTaskStore()
+
+            if (taskStore.tasks.length === 0) {
+                await taskStore.fetchTasks()
+            }
+
             const taskFound = taskStore.tasks.find(task => task.id === parseInt(to.params.id))
 
             if (!taskFound) {

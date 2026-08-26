@@ -5,25 +5,8 @@ import { getTasks } from "../services/tasksApi"
 export const useTaskStore = defineStore('tasks', () => {
     const loading = ref(false)
     const error = ref(null)
-    const defaultTasks = [
-        {
-            id: 1,
-            text: 'Laver la voiture',
-            done: true
-        },
-        {
-            id: 2,
-            text: 'Acheter croquettes',
-            done: false
-        },
-        {
-            id: 3,
-            text: 'Commander cadeau anniversaire',
-            done: false
-        }
-    ]
 
-    let tasks = ref(defaultTasks)
+    let tasks = ref([])
 
     async function fetchTasks() {
         loading.value = true
@@ -48,13 +31,5 @@ export const useTaskStore = defineStore('tasks', () => {
         }
     }
 
-    function toggleTasksData() {
-        if (tasks.value.length > 0) {
-            tasks.value = []
-        } else {
-            tasks.value = defaultTasks
-        }
-    }
-
-    return { error, loading, tasks, fetchTasks, toggleTask, toggleTasksData }
+    return { error, loading, tasks, fetchTasks, toggleTask }
 })
