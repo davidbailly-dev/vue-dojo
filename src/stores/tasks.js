@@ -5,8 +5,7 @@ import { getTasks } from "../services/tasksApi"
 export const useTaskStore = defineStore('tasks', () => {
     const loading = ref(false)
     const error = ref(null)
-
-    let tasks = ref([])
+    const tasks = ref([])
 
     async function fetchTasks() {
         loading.value = true
@@ -24,11 +23,7 @@ export const useTaskStore = defineStore('tasks', () => {
     function toggleTask(id) {
         const taskFound = tasks.value.find(task => task.id === id)
 
-        if (taskFound.done) {
-            taskFound.done = false
-        } else {
-            taskFound.done = true
-        }
+        taskFound.done = !taskFound.done
     }
 
     return { error, loading, tasks, fetchTasks, toggleTask }
