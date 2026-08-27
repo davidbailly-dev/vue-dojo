@@ -1,19 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+import { useTheme } from './composables/useTheme';
 
-const themeName = ref('dark')
+const { activeTheme, toggleTheme } = useTheme()
 
-function toggleTheme() {
-  if (themeName.value === 'light') {
-    themeName.value = 'dark'
-  } else {
-    themeName.value = 'light'
-  }
-}
 </script>
 
 <template>
-  <div class="app" :class="themeName">
+  <div class="app" :class="activeTheme">
     <h1>Vue Dojo</h1>
     <RouterView />
     <button @click="toggleTheme()">Basculer thème clair/sombre</button>
