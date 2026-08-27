@@ -1,13 +1,12 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { useTaskStore } from '../stores/tasks'
 
 const taskStore = useTaskStore()
 const route = useRoute()
 const id = computed(() => route.params.id)
-let task = computed(() => taskStore.tasks.find(task => task.id === parseInt(id.value)))
+const task = computed(() => taskStore.tasks.find(t => t.id === parseInt(id.value)))
 </script>
 
 <template>
